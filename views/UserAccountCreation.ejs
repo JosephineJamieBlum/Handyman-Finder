@@ -1,0 +1,50 @@
+<!-- HTML User Account Creation Page by Nick Thomas-->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Create User Account</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <div class="main">
+            <h1>Create your User Account</h1>
+            <!--Define form method as POST for use by Express-->
+            <!--Action = app.get route-->
+            <form action="/UserCreation" method="post">
+                <fieldset>
+                    <!--label for= specifies the reference ID of the input field-->
+                    <label for="username">Enter a UserName</label>
+                    <input type="text" id="username" name="username" autofocus required> <br>
+                    <label for="userPassword">Enter a Password</label>
+                    <input type="password" id="userPassword" name="userPassword"> <br>
+                    <label for="firstName">Enter your first name</label>
+                    <input type="text" id="firstName" name="firstName"> <br>
+                    <label for="lastName">Enter your last name</label>
+                    <input type="text" id="lastName" name="lastName"> <br>
+                    <label for="age">Enter your age</label>
+                    <input type="number" id="age" name="age"> <br>
+
+                    <!-- <label for="gender">Enter your Gender</label>
+                    <input type="text" id="gender" name="gender"> <br> -->
+
+                    <!-- Use the select tag as a drop down instead -->
+                    <select name="gender" id="gender">
+                        <option name="male" value="Male">Male</option>
+                        <option name="female" value="Female">Female</option>
+                        <option name="nb" value="NB">Non-Binary</option>
+                    </select>
+                    <br>
+                    <!--Submit the following data above-->
+                    <input type="submit" value="create user account">
+                </fieldset>
+            </form>
+
+            <p>Current Logged in user:</p>
+            <%= locals.user ? user : "Not logged in" %>
+            <!--Insert partial template for the footer-->
+            <%- include ("partials/HandyNavFooter.ejs") %>
+        </div>
+    </body>
+</html>

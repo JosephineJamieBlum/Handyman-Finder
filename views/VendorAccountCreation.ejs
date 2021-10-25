@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Create Contractor Account</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <div class="main">
+            <h1>Create your Contractor Account</h1>
+            <p>Note that Fields in red must be filled out</p>
+            <!--Define form method as POST for use by Express-->
+            <!--Action = app.get route-->
+            <form action="/VendorCreation" method="post">
+                <fieldset>
+                    <!--label for= specifies the reference ID of the input field-->
+                    <label for="Vusername">Enter a UserName</label>
+                    <input type="text" id="Vusername" name="Vusername" autofocus> <br>
+                    <label for="VPassword">Enter a Password</label>
+                    <input type="Vpassword" id="VPassword" name="VPassword"> <br>
+                    <label for="companyName">Enter your Company Name</label>
+                    <input type="text" id="companyName" name="companyName"> <br>
+                    <label for="State">Enter your State</label>
+                    <input type="text" id="state" name="state"> <br>
+                    <label for="city">Enter your City</label>
+                    <input type="text" id="city" name="city"> <br>
+                    <!-- Use the select tag as a drop down instead -->
+                    <label for="profession1">Choose one that best describes your main service</label>
+                    <select name="profession1" id="profession1">
+                        <option name="NullValue" value="">Select a Profession...</option>
+                        <option name="plumber" value="Plumber">Plumber</option>
+                        <option name="electrician" value="Electrician">Electrician</option>
+                        <option name="landscaper" value="Landscaper">Landscaper</option>
+                        <option name="painter" value="Painter">Painter</option>
+                        <option name="HVAC" value="HVAC">HVAC</option>
+                        <option name="appliances" value="Appliances">Appliance Installation</option>
+                    </select>
+                    <br>
+                    <label for="phone">Enter your Phone number</label>
+                    <input type="text" id="phone" name="phone"> <br>
+                    <!--Submit the following data above-->
+                    <input type="submit" value="create Contractor Account">
+                </fieldset>
+            </form>
+
+        <!-- Check for logins -->
+        <p>Current Logged in user:</p>
+        <%= locals.user ? user : "Not logged in" %> 
+
+        <!--Insert partial template for the footer-->
+        <%- include ("partials/HandyNavFooter.ejs") %>
+        </div>
+    </body>
+</html>
